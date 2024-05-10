@@ -2,7 +2,7 @@ import sys
 import os
 
 
-def ConvertFileLink(CurrentFilePath):
+def ConvertFileLink(CurrentFilePath: str) -> str:
     """
     相対パスを絶対パスに変換する
 
@@ -18,7 +18,7 @@ def ConvertFileLink(CurrentFilePath):
     return name
 
 
-def Read(CurrentFilePath: str):
+def Read(CurrentFilePath: str) -> str:
     """
     テキストファイルの読み込みをする
 
@@ -35,7 +35,7 @@ def Read(CurrentFilePath: str):
     return result
 
 
-def ReadCSV(CurrentFilePath):
+def ReadCSV(CurrentFilePath: str) -> list[str]:
     """
     CSVファイルを読み込み2次元配列を返す
 
@@ -56,7 +56,7 @@ def ReadCSV(CurrentFilePath):
     return Result
 
 
-def Write(CurrentFilePath, WriteString, FileReadMode):
+def Write(CurrentFilePath: str, WriteString: str, FileReadMode: str) -> None:
     """
     テキストファイルに書き込む
 
@@ -71,7 +71,7 @@ def Write(CurrentFilePath, WriteString, FileReadMode):
     Files.close()
 
 
-def WriteAdd(CurrentFilePath, WriteString):
+def WriteAdd(CurrentFilePath: str, WriteString: str) -> None:
     """
     テキストファイルに書き込む (追記)
 
@@ -82,7 +82,7 @@ def WriteAdd(CurrentFilePath, WriteString):
     Write(CurrentFilePath, WriteString, "a")
 
 
-def WriteNew(CurrentFilePath, WriteString):
+def WriteNew(CurrentFilePath: str, WriteString: str) -> None:
     """
     テキストファイルに書き込む (上書き)
 
@@ -93,7 +93,7 @@ def WriteNew(CurrentFilePath, WriteString):
     Write(CurrentFilePath, WriteString, "w")
 
 
-def Clear(CurrentFilePath):
+def Clear(CurrentFilePath: str) -> None:
     """
     テキストファイルの中身をクリアする
 
