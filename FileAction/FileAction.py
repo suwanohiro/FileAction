@@ -12,9 +12,8 @@ def ConvertFileLink(CurrentFilePath: str) -> str:
     Return:
         str: 絶対パス
     """
-    data = os
-    base = data.path.dirname(sys.argv[0])
-    name = data.path.normpath(data.path.join(base, CurrentFilePath))
+    base = os.path.dirname(sys.argv[0])
+    name = os.path.normpath(os.path.join(base, CurrentFilePath))
     return name
 
 
@@ -45,14 +44,13 @@ def ReadCSV(CurrentFilePath: str) -> list[str]:
     Return:
         2次元配列にしたCSVファイルのデータ
     """
-    TextData = Read(CurrentFilePath)
-    Result = []
-    Array1 = TextData.split("\n")
-    cnt = 0
-    while cnt < len(Array1):
-        Work = Array1[cnt].split(",")
-        Result.append(Work)
-        cnt = cnt + 1
+    TextData: str = Read(CurrentFilePath)
+    Result: list[str] = []
+    Array: list[str] = TextData.split("\n")
+
+    for data in Array:
+        work = data.split(",")
+        Result.append(work)
     return Result
 
 
@@ -65,7 +63,7 @@ def Write(CurrentFilePath: str, WriteString: str, FileReadMode: str) -> None:
         WriteString     (str)   : 書き込むテキストデータ
         FileReadMode    (str)   : ファイルの読み込みモード
     """
-    path = ConvertFileLink(CurrentFilePath)
+    path: str = ConvertFileLink(CurrentFilePath)
     Files = open(path, FileReadMode, encoding="UTF-8")
     Files.write(WriteString)
     Files.close()
