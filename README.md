@@ -30,13 +30,13 @@ pip install FileAction
 以下は、`FileAction` の基本的な使用例です。
 
 ```python
-from FileAction import Read, WriteNew
+import FileAction
 
 # ファイルにデータを書き込む
-WriteNew("example.txt", "Hello, World!")
+FileAction.WriteNew("example.txt", "Hello, World!")
 
 # ファイルの内容を読み込む
-content = Read("example.txt")
+content = FileAction.Read("example.txt")
 print(content)  # 出力: Hello, World!
 ```
 
